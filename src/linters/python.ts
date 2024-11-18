@@ -74,6 +74,7 @@ export const monacoConfig = async () => {
     },
   });
 
+  // not working as monaco is 💩
   monaco.languages.registerDocumentFormattingEditProvider('python', {
     async provideDocumentFormattingEdits(model) {
       const code = model.getValue();

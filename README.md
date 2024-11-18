@@ -1,8 +1,23 @@
-# React + Vite
+# React Monaco Editor with Python Support
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern web-based code editor built with React, Vite, and Monaco Editor, featuring Python syntax highlighting, code completion, and basic syntax validation.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 🖥️ Full-featured code editor powered by Monaco Editor
+- 🐍 Python language support with:
+  - Syntax highlighting
+  - Intelligent code completion
+  - Basic syntax validation - NOT WORKING YET
+- 🌓 Light/Dark theme switching
+- 🎨 Modern UI with Tailwind CSS
+- ⚡ Fast development with Vite
+
+## Prerequisites
+
+- Node.js (Latest LTS version recommended)
+- npm or yarn
+
+## Installation
+
+1. Clone the repository:
