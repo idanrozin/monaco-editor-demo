@@ -39,11 +39,6 @@ export function CodeEditor({
     [onChange]
   );
 
-  // const handleEditorDidMount = useCallback((editor: any, monaco: any) => {
-  //   const model = editor.getModel();
-  //   monacoConfig(model); // Pass the model to monacoConfig
-  // }, []);
-
   // Don't render the editor until Monaco is ready
   if (!isMonacoReady) {
     return <div>Loading editor...</div>; // Or your preferred loading state
@@ -63,7 +58,6 @@ export function CodeEditor({
         height={height}
         defaultLanguage={language}
         value={value}
-        // onMount={handleEditorDidMount}
         onChange={handleEditorChange}
         theme={isDark ? 'vs-dark' : 'light'}
         options={{
