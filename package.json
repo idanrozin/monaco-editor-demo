@@ -14,6 +14,7 @@
     "@monaco-editor/react": "^4.6.0",
     "monaco-editor": "^0.52.0",
     "monaco-python": "^0.1.9",
+    "pyodide": "^0.26.4",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
