@@ -1,5 +1,6 @@
 import Editor from '@monaco-editor/react';
 import { useCallback, useState } from 'react';
+import * as monaco from 'monaco-editor';
 
 interface CodeEditorProps {
   value: string;
@@ -11,7 +12,7 @@ interface CodeEditorProps {
 export function CodeEditor({
   value,
   onChange,
-  language = 'javascript',
+  language = 'python',
   height = '500px',
 }: CodeEditorProps) {
   const [isDark, setIsDark] = useState(true);
@@ -22,6 +23,28 @@ export function CodeEditor({
     },
     [onChange]
   );
+
+  const handleEditorDidMount = (editor: monaco.editor.IStandaloneCodeEditor) => {
+    // Enable Python-specific features
+    if (language === 'python') {
+      editor.updateOptions({
+        suggest: {
+          snippetsPreventQuickSuggestions: false,
+        },
+        quickSuggestions: {
+          other: true,
+          comments: true,
+          strings: true,
+        },
+        parameterHints: {
+          enabled: true,
+        },
+        // semanticHighlighting: {
+        //   enabled: true,
+        // },
+      });
+    }
+  };
 
   return (
     <div className='w-full rounded-lg overflow-hidden border border-gray-700'>
@@ -38,6 +61,7 @@ export function CodeEditor({
         defaultLanguage={language}
         value={value}
         onChange={handleEditorChange}
+        // onMount={handleEditorDidMount}
         theme={isDark ? 'vs-dark' : 'light'}
         options={{
           minimap: { enabled: true },
@@ -48,6 +72,8 @@ export function CodeEditor({
           suggestOnTriggerCharacters: true,
           tabCompletion: 'on',
           quickSuggestions: true,
+          formatOnType: true,
+          formatOnPaste: true,
         }}
       />
     </div>
